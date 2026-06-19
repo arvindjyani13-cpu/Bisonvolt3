@@ -511,19 +511,23 @@ footer{
 
             </div>
 
-            <form>
+          <form action="https://api.web3forms.com/submit" method="POST">
 
-                <input type="text" placeholder="Your Name">
+<input type="hidden" name="access_key" value="1a1b7766-f97c-49e8-a3ac-8bdc2b7004b3">
 
-                <input type="email" placeholder="Email Address">
+<input type="hidden" name="subject" value="New BisonVolt Website Inquiry">
 
-                <input type="tel" placeholder="Phone Number">
+<input type="text" name="name" placeholder="Your Name" required>
 
-                <textarea rows="5" placeholder="Your Requirement"></textarea>
+<input type="email" name="email" placeholder="Email Address" required>
 
-                <button type="submit">Send Inquiry</button>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
-            </form>
+<textarea name="message" rows="5" placeholder="Your Requirement" required></textarea>
+
+<button type="submit">Send Inquiry</button>
+
+</form>
 
         </div>
 
