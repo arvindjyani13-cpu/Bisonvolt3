@@ -23,18 +23,22 @@ body{
     color:#222;
     line-height:1.6;
 }
-
 header{
     background:#ffffff;
-border-bottom:2px solid #22c55e;
+    border-bottom:2px solid #22c55e;
     color:white;
-    position:relative;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:transform 0.3s ease;
 }
-      .hero-logo{
-    width:650px;
-    height:auto;
-    margin-bottom:30px;
+
+header.hide{
+    transform:translateY(-100%);
 }
+
 .navbar{
     max-width:1000px;
     margin:auto;
