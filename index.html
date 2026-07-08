@@ -581,6 +581,23 @@ commercial and industrial applications across India.
         © 2026 BisonVolt. All Rights Reserved.
     </p>
 </footer>
+<script>
+let lastScroll = 0;
+const header = document.querySelector("header");
 
+window.addEventListener("scroll", () => {
+    let currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scroll Down
+        header.classList.add("hide");
+    } else {
+        // Scroll Up
+        header.classList.remove("hide");
+    }
+
+    lastScroll = currentScroll;
+});
+</script>
 </body>
 </html>
