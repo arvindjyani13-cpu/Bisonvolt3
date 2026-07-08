@@ -22,6 +22,7 @@ body{
     background:#f8f9fb;
     color:#222;
     line-height:1.6;
+    padding-top:170px;
 }
 header{
     background:#ffffff;
@@ -32,11 +33,17 @@ header{
     left:0;
     width:100%;
     z-index:1000;
-    transition:transform 0.3s ease;
+    transition:all .3s ease;
 }
 
 header.hide{
     transform:translateY(-100%);
+}
+header.small .navbar{
+    padding:8px 60px;
+}
+header.small .logo img{
+    height:90px;
 }
 
 .navbar{
@@ -49,39 +56,24 @@ header.hide{
     padding:20px 60px;
   
 }
-      header.small .navbar{
-    padding:8px 60px;
-}
 .logo{
     display:flex;
     align-items:center;
 }
-header.small .logo img{
-    height:80px !important;
-    transition:0.3s;
-}
+
 .logo img{
     height:180px;
     width:auto;
     display:block;
     margin-left:0;
     filter:none;
-   transition:0.3s;
-}
-
-}
-
-}
-    
-    font-size:1.8rem;
-    font-weight:bold;
-    color:#f9c74f;
+    transition:.3s;
 }
 
 .nav-links{
     display:flex;
     gap:150px;
-   magin-left:50px;
+   margin-left:50px;
 
 }
 
@@ -381,7 +373,7 @@ We provide reliable, high-efficiency products for residential,
 commercial and industrial applications across India.
                 </p>
             </div>
-                ul>
+                <ul>
 <li>✓ On-Grid Solar Inverters</li>
 <li>✓ Hybrid Solar Inverters</li>
 <li>✓ Off-Grid Solar Solutions</li>
@@ -593,22 +585,12 @@ commercial and industrial applications across India.
         © 2026 BisonVolt. All Rights Reserved.
     </p>
 </footer>
-if (currentScroll <= 20) {
-    header.classList.remove("hide");
-    header.classList.remove("small");
-} else if (currentScroll > lastScroll) {
-    header.classList.add("hide");
-    header.classList.add("small");
-} else {
-    header.classList.remove("hide");
-    header.classList.add("small");
-}
-   <script>
+<script>
 let lastScroll = 0;
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
-    let currentScroll = window.pageYOffset;
+    const currentScroll = window.pageYOffset;
 
     if (currentScroll <= 20) {
         header.classList.remove("hide");
