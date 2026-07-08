@@ -204,10 +204,15 @@ section{
 
 .card-img{
     height:220px;
-    background:#ddd;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    overflow:hidden;
+}
+
+.card-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
 }
 
 .card-content{
@@ -400,9 +405,9 @@ commercial and industrial applications across India.
         <div class="product-grid">
 
             <div class="card">
-                <div class="card-img">
-                    Product Image
-                </div>
+              <div class="card-img">
+    <img src="hybrid-coming-soon.jpg.png" alt="Hybrid Inverter">
+</div>
 
                 <div class="card-content">
                     <h3>Hybrid Inverter</h3>
@@ -415,8 +420,8 @@ commercial and industrial applications across India.
 
             <div class="card">
                 <div class="card-img">
-                    Product Image
-                </div>
+    <img src="ongrid-coming-soon.jpg.png" alt="On-Grid Inverter">
+</div>
 
                 <div class="card-content">
                     <h3>On-Grid Inverter</h3>
@@ -428,9 +433,9 @@ commercial and industrial applications across India.
             </div>
 
             <div class="card">
-                <div class="card-img">
-                    Product Image
-                </div>
+              <div class="card-img">
+    <img src="offgrid-coming-soon.jpg.png" alt="Off-Grid Inverter">
+</div>
 
                 <div class="card-content">
                     <h3>Off-Grid Inverter</h3>
