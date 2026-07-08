@@ -49,19 +49,27 @@ header.hide{
     padding:20px 60px;
   
 }
+      header.small .navbar{
+    padding:8px 60px;
+}
 .logo{
     display:flex;
     align-items:center;
 }
-
+header.small .logo img{
+    height:80px !important;
+    transition:0.3s;
+}
 .logo img{
     height:180px;
     width:auto;
     display:block;
     margin-left:0;
     filter:none;
+   transition:0.3s;
 }
 
+}
 
 }
     
@@ -585,19 +593,32 @@ commercial and industrial applications across India.
         © 2026 BisonVolt. All Rights Reserved.
     </p>
 </footer>
-<script>
+if (currentScroll <= 20) {
+    header.classList.remove("hide");
+    header.classList.remove("small");
+} else if (currentScroll > lastScroll) {
+    header.classList.add("hide");
+    header.classList.add("small");
+} else {
+    header.classList.remove("hide");
+    header.classList.add("small");
+}
+   <script>
 let lastScroll = 0;
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
     let currentScroll = window.pageYOffset;
 
-    if (currentScroll > lastScroll && currentScroll > 100) {
-        // Scroll Down
-        header.classList.add("hide");
-    } else {
-        // Scroll Up
+    if (currentScroll <= 20) {
         header.classList.remove("hide");
+        header.classList.remove("small");
+    } else if (currentScroll > lastScroll) {
+        header.classList.add("hide");
+        header.classList.add("small");
+    } else {
+        header.classList.remove("hide");
+        header.classList.add("small");
     }
 
     lastScroll = currentScroll;
