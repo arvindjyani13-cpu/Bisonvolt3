@@ -1059,6 +1059,76 @@ footer{
  }
  .nav-menu.active{left:0!important;}
 }
+      /* ======================================================
+   PHASE 2.5 PREMIUM NAVBAR POLISH
+====================================================== */
+
+/* Active Hamburger */
+
+.menu-toggle.active span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
+
+.menu-toggle span{
+    transition:.35s ease;
+}
+
+/* Navbar Glow */
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:1px;
+
+    background:linear-gradient(
+    90deg,
+    transparent,
+    #22c55e,
+    #ffd54a,
+    transparent);
+
+    opacity:.65;
+
+}
+
+/* CTA Button */
+
+.nav-btn{
+
+    box-shadow:
+    0 10px 30px rgba(34,197,94,.30);
+
+}
+
+.nav-btn:hover{
+
+    box-shadow:
+    0 16px 40px rgba(34,197,94,.45);
+
+}
+
+/* Nav Hover */
+
+.nav-menu a{
+
+    letter-spacing:.4px;
+
+}
 
 </style>
 </head>
@@ -1527,7 +1597,7 @@ if(menuToggle && navMenu){
 menuToggle.addEventListener("click",()=>{
 
     navMenu.classList.toggle("active");
-
+menuToggle.classList.toggle("active");
 });
 
 document.querySelectorAll(".nav-menu a").forEach(link=>{
@@ -1535,6 +1605,9 @@ document.querySelectorAll(".nav-menu a").forEach(link=>{
     link.addEventListener("click",()=>{
 
         navMenu.classList.remove("active");
+
+menuToggle.classList.remove("active");
+
 
     });
 
