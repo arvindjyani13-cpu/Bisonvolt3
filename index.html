@@ -1456,59 +1456,124 @@ commercial and industrial applications across India.
 </footer>
 <!-- 37. JAVASCRIPT -->
 <script>
-// 38. Navbar Scroll Logic
+/* ======================================================
+   PREMIUM NAVBAR + HERO JS
+====================================================== */
+
+const header = document.querySelector(".header");
+const menuToggle = document.querySelector(".menu-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
 let lastScroll = 0;
-const header = document.querySelector("header");
+
+/* ===== Navbar Scroll ===== */
 
 window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
 
-    if (currentScroll <= 20) {
-        header.classList.remove("hide");
+    const current = window.pageYOffset;
+
+    if(current <= 20){
+
         header.classList.remove("small");
-    } else if (currentScroll > lastScroll) {
-        header.classList.add("hide");
-        header.classList.add("small");
-    } else {
         header.classList.remove("hide");
-        header.classList.add("small");
+
     }
 
-    lastScroll = currentScroll;
+    else if(current > lastScroll){
+
+        header.classList.add("hide");
+        header.classList.add("small");
+
+    }
+
+    else{
+
+        header.classList.remove("hide");
+        header.classList.add("small");
+
+    }
+
+    lastScroll = current;
+
 });
 
-// 39. Hero Mouse Animation
-const heroImage = document.querySelector(".hero-image-card");
+
+/* ===== Mobile Menu ===== */
+
+menuToggle.addEventListener("click",()=>{
+
+    navMenu.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-menu a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navMenu.classList.remove("active");
+
+    });
+
+});
+
+
+/* ===== Hero Mouse Effect ===== */
+
 const hero = document.querySelector(".hero");
+const heroImage = document.querySelector(".hero-image-card");
 
-if (hero && heroImage) {
-    hero.addEventListener("mousemove", (e) => {
-        const x = (window.innerWidth / 2 - e.clientX) / 30;
-        const y = (window.innerHeight / 2 - e.clientY) / 30;
-        heroImage.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-    });
+if(hero && heroImage){
 
-    hero.addEventListener("mouseleave", () => {
-        heroImage.style.transform = "rotateY(0deg) rotateX(0deg)";
-    });
+hero.addEventListener("mousemove",(e)=>{
+
+const x=(window.innerWidth/2-e.clientX)/30;
+const y=(window.innerHeight/2-e.clientY)/30;
+
+heroImage.style.transform=
+`rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+hero.addEventListener("mouseleave",()=>{
+
+heroImage.style.transform="rotateY(0) rotateX(0)";
+
+});
+
 }
 
-// 40. Button Hover Effects
-document.querySelectorAll(".hero-btn").forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
-        btn.style.transform = "translateY(-5px) scale(1.03)";
-    });
 
-    btn.addEventListener("mouseleave", () => {
-        btn.style.transform = "translateY(0) scale(1)";
-    });
+/* ===== Hero Buttons ===== */
+
+document.querySelectorAll(".hero-btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-5px) scale(1.03)";
+
 });
 
-// 41. Floating Card Animation
-document.querySelectorAll(".floating-card").forEach((card, index) => {
-    setInterval(() => {
-        card.style.transform = `translateY(${Math.sin(Date.now()/700+index)*8}px)`;
-    }, 25);
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0) scale(1)";
+
+});
+
+});
+
+
+/* ===== Floating Cards ===== */
+
+document.querySelectorAll(".floating-card").forEach((card,index)=>{
+
+setInterval(()=>{
+
+card.style.transform=
+`translateY(${Math.sin(Date.now()/700+index)*8}px)`;
+
+},25);
+
 });
 </script>
 </body>
