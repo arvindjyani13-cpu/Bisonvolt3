@@ -1200,6 +1200,64 @@ window.addEventListener("scroll", () => {
         header.classList.add("small");
     }
 
+const heroImage = document.querySelector(".hero-image-card");
+const hero = document.querySelector(".hero");
+
+if(hero && heroImage){
+
+hero.addEventListener("mousemove",(e)=>{
+
+const x=(window.innerWidth/2-e.clientX)/30;
+const y=(window.innerHeight/2-e.clientY)/30;
+
+heroImage.style.transform=
+`rotateY(${x}deg) rotateX(${-y}deg)`;
+
+});
+
+hero.addEventListener("mouseleave",()=>{
+
+heroImage.style.transform=
+"rotateY(0deg) rotateX(0deg)";
+
+});
+
+}
+
+/* Floating Cards */
+
+const cards=document.querySelectorAll(".floating-card");
+
+cards.forEach((card,index)=>{
+
+setInterval(()=>{
+
+card.style.transform=
+`translateY(${Math.sin(Date.now()/700+index)*8}px)`;
+
+},25);
+
+});
+
+
+
+/* Smooth Hover */
+
+document.querySelectorAll(".hero-btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transform="translateY(-5px) scale(1.03)";
+
+});
+
+btn.addEventListener("mouseleave",()=>{
+
+btn.style.transform="translateY(0) scale(1)";
+
+});
+
+});
     lastScroll = currentScroll;
 });
 </script>
