@@ -34,81 +34,185 @@ body{
     line-height:1.6;
     padding-top:170px;
 }
+/* ======================================================
+   PREMIUM GLASS NAVBAR
+====================================================== */
 
-/* 04. HEADER */
-header{
-    background:#ffffff;
-    border-bottom:2px solid #22c55e;
-    color:white;
+.header{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     z-index:1000;
-    transition:all .3s ease;
+
+    background:rgba(8,18,32,.55);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.35s ease;
 }
 
-
-/* 05. HEADER HIDE ANIMATION */
-header.hide{
+.header.hide{
     transform:translateY(-100%);
 }
 
-/* 06. SHRINK NAVBAR */
-header.small .navbar{
-    padding:8px 60px;
-}
-
-/* 07. SHRINK LOGO */
-header.small .logo img{
-    height:90px;
+.header.small{
+    background:rgba(8,18,32,.90);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
 .navbar{
-    max-width:1000px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-   gap:150px;
-    align-items:center;
-    padding:20px 60px;
-  
-}
 
-/* 09. LOGO */
-.logo{
+    max-width:1400px;
+
+    margin:auto;
+
+    padding:18px 40px;
+
     display:flex;
+
+    justify-content:space-between;
+
     align-items:center;
+
 }
 
 .logo img{
-    height:180px;
-    width:auto;
-    display:block;
-    margin-left:0;
-    filter:none;
-    transition:.3s;
+
+    height:72px;
+
+    transition:.35s;
+
 }
 
+.header.small .logo img{
 
-/* 11. NAVIGATION LINKS */
-.nav-links{
+    height:60px;
+
+}
+
+.nav-menu{
+
     display:flex;
-    gap:150px;
-   margin-left:50px;
+
+    gap:42px;
+
+    align-items:center;
 
 }
 
-.nav-links a{
-    color:#111827;
+.nav-menu a{
+
+    color:#fff;
+
     text-decoration:none;
-    font-weight:700;
-   font-size: 18px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    position:relative;
+
+    transition:.3s;
+
 }
 
-.nav-links a:hover{
-    color:#f9c74f;
+.nav-menu a:hover{
+
+    color:#ffd54a;
+
 }
+
+.nav-menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#22c55e;
+
+    transition:.3s;
+
+}
+
+.nav-menu a:hover::after{
+
+    width:100%;
+
+}
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.nav-btn{
+
+    text-decoration:none;
+
+    background:#22c55e;
+
+    color:#fff;
+
+    padding:12px 24px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:#18b450;
+
+}
+
+.menu-toggle{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    cursor:pointer;
+
+}
+
+.menu-toggle span{
+
+    width:28px;
+
+    height:3px;
+
+    border-radius:50px;
+
+    background:#fff;
+
+}
+
+
+
+
 
 /* 12. HERO SECTION */
 .hero{
@@ -844,25 +948,79 @@ footer{
 }
 
 @media(max-width:768px){
+.logo img{
 
+    height:58px;
+
+}
     .hero h1{
         font-size:2.1rem;
     }
+/* ===== PREMIUM MOBILE NAVBAR ===== */
 
-    .nav-links{
-        gap:40px;
-        font-size:22px;
-    }
+.nav-menu{
+
+    position:fixed;
+
+    top:92px;
+
+    left:-100%;
+
+    width:100%;
+
+    background:#081220;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:30px;
+
+    padding:35px 0;
+
+    transition:.35s;
+
+}
+
+.nav-menu.active{
+
+    left:0;
+
+}
+
+.nav-menu a{
+
+    font-size:18px;
+
+}
+
+.menu-toggle{
+
+    display:flex;
+
+}
+
+.nav-btn{
+
+    display:none;
+
+}
+
+.navbar{
+
+    padding:18px 25px;
+
+}
+    
 
     .about-grid,
     .contact-grid{
         grid-template-columns:1fr;
     }
 
-    .navbar{
-        flex-direction:column;
-        gap:10px;
-    }
+  
 }
 
 /* ===== HERO FINAL PART 4 ===== */
@@ -892,21 +1050,47 @@ footer{
 ===================================================== -->
 
 <!-- ================= WEBSITE START ================= -->
+<!-- 29. PREMIUM HEADER -->
 
-<!-- 29. HEADER -->
-<header>
+<header class="header">
+
     <div class="navbar">
-<div class="logo">
-    <img src="logo.png" alt="BisonVolt Logo">
-</div>
-        <div class="nav-links">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="logo.png" alt="BisonVolt Logo">
+        </a>
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+
             <a href="#about">About</a>
-<a href="#products">Products</a>
-<a href="#features">Features</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+            <a href="#products">Products</a>
+            <a href="#features">Features</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <!-- Right Side -->
+        <div class="nav-right">
+
+            <a href="#contact" class="nav-btn">
+                Get Quote
+            </a>
+
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
+
+
 <!-- 30. HERO SECTION -->
 <section class="hero">
 
